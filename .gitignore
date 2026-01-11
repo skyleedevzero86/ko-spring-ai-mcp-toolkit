@@ -46,4 +46,5 @@ Backend/HELP.md
 **/application-dev.yml
 **/application-prod.yml
 **/application-*.yml
-!**/application.yml
+**/application.yml
+**/application.properties
