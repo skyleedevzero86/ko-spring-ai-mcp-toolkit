@@ -36,8 +36,6 @@ build/
 .env
 .env.*
 *.env
-application-local.yml
-application-dev.yml
-application-prod.yml
-application-*.yml
-!application.yml
+application.properties
+*.yml
+*.yaml
