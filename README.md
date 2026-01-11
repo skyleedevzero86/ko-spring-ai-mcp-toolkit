@@ -128,3 +128,8 @@ Apache License 2.0
 ### 포트 충돌
 - 기본 포트: MCP Server (6080), MCP Client (8080), Frontend (3000)
 - 포트가 사용 중이면 환경 변수로 변경하세요
+
+
+
+[**읽기만 하는 AI는 그만! Spring AI와 MCP로 파일 조작부터 메일 발송까지 실현하기**](https://velog.io/@sleekydevzero86/spring-ai-mcp-tool-calling)
+
