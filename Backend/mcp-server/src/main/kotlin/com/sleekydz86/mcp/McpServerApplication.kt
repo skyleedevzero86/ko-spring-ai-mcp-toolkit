@@ -4,8 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class McpServerApplication
-
-fun main(args: Array<String>) {
-    runApplication<McpServerApplication>(*args)
+class McpServerApplication {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            runApplication<McpServerApplication>(*args)
+        }
+    }
 }
