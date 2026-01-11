@@ -31,7 +31,7 @@ class KnowledgeBasePromptStrategy(
     override fun createPrompt(question: String): Prompt {
         val relatedDocs = documentRepository.findSimilarDocuments(question)
         val context = if (relatedDocs.isNotEmpty()) {
-            relatedDocs.joinToString("\n---\n") { it.text }
+            relatedDocs.joinToString("\n---\n") { it.text ?: "" }
         } else {
             "관련 지식베이스 정보를 찾을 수 없습니다."
         }

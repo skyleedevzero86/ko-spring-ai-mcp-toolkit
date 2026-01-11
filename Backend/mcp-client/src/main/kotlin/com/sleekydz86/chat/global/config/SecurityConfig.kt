@@ -30,10 +30,14 @@ class SecurityConfig(
             }
             .headers { headers ->
                 headers
-                    .contentSecurityPolicy("default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';")
-                    .and()
-                    .frameOptions().deny()
-                    .xssProtection().block()
+                    .contentSecurityPolicy { policy ->
+                        policy.policyDirectives("default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';")
+                    }
+                    .frameOptions { frameOptions ->
+                        frameOptions.deny()
+                    }
+                    // XSS Protection은 Content Security Policy와 XssFilter로 처리되므로 제거
+                    // Spring Security 6에서는 XSS Protection 헤더가 deprecated되었습니다
             }
             .sessionManagement { session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -10,9 +10,10 @@ class CustomDocumentSplitter : TextSplitter(), DocumentSplitter {
 
     override fun split(documents: List<Document>): List<Document> {
         return documents.flatMap { doc ->
-            val splitTexts = splitText(doc.text)
-            splitTexts.map { text ->
-                Document(text, doc.metadata)
+            val text = doc.text ?: return@flatMap emptyList()
+            val splitTexts = splitText(text)
+            splitTexts.map { splitText ->
+                Document(splitText, doc.metadata)
             }
         }
     }

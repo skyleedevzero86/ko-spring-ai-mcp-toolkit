@@ -20,7 +20,7 @@ class XssFilter : OncePerRequestFilter() {
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val wrappedRequest = ContentCachingRequestWrapper(request)
+        val wrappedRequest = ContentCachingRequestWrapper(request, 65536)
         val wrappedResponse = ContentCachingResponseWrapper(response)
 
         try {
@@ -32,7 +32,7 @@ class XssFilter : OncePerRequestFilter() {
                 if (responseBody.isNotEmpty()) {
                     val sanitized = sanitizeInput(responseBody)
                     wrappedResponse.resetBuffer()
-                    wrappedResponse.contentLength = sanitized.length
+                    wrappedResponse.setContentLength(sanitized.length)
                     wrappedResponse.writer.write(sanitized)
                 }
             }

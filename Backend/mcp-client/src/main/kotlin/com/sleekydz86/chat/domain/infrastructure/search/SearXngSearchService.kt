@@ -1,10 +1,11 @@
 package com.sleekydz86.chat.domain.infrastructure.search
 
 import cn.hutool.json.JSONUtil
-import com.sleekydz86.chat.domain.model.search.SearchResult
+import com.sleekydz86.chat.domain.model.search.SearchResult as DomainSearchResult
 import com.sleekydz86.chat.domain.model.search.SearchService
+import com.sleekydz86.chat.global.bean.SearchResult as BeanSearchResult
 import com.sleekydz86.chat.global.bean.SearXNGResponse
-import okhttp3.HttpUrl
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.slf4j.LoggerFactory
@@ -22,9 +23,10 @@ class SearXngSearchService(
 
     private val log = LoggerFactory.getLogger(SearXngSearchService::class.java)
 
-    override fun search(query: String): List<SearchResult> {
-        val url = HttpUrl.get(searXngUrl)
-            .newBuilder()
+    override fun search(query: String): List<DomainSearchResult> {
+        val baseUrl = searXngUrl.toHttpUrlOrNull()
+            ?: throw IllegalArgumentException("Invalid SearXNG URL: $searXngUrl")
+        val url = baseUrl.newBuilder()
             .addQueryParameter("q", query)
             .addQueryParameter("format", "json")
             .build()
@@ -64,7 +66,7 @@ class SearXngSearchService(
         }
     }
 
-    private fun processSearchResults(results: List<BeanSearchResult>): List<SearchResult> {
+    private fun processSearchResults(results: List<BeanSearchResult>): List<DomainSearchResult> {
         if (results.isEmpty()) {
             return emptyList()
         }
@@ -75,8 +77,8 @@ class SearXngSearchService(
             .map { convertToDomainResult(it) }
     }
 
-    private fun convertToDomainResult(beanResult: BeanSearchResult): SearchResult {
-        return SearchResult(
+    private fun convertToDomainResult(beanResult: BeanSearchResult): DomainSearchResult {
+        return DomainSearchResult(
             title = beanResult.title,
             content = beanResult.content,
             url = beanResult.url,
