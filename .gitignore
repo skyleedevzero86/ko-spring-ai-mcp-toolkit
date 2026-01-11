@@ -25,3 +25,25 @@ replay_pid*
 
 # Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
 .kotlin/
+
+frontend/package.json
+frontend/pnpm-lock.yaml
+frontend/pnpm-workspace.yaml
+frontend/node_modules/
+Backend/target/
+Backend/.idea/
+frontend/.next/
+frontend/next-env.d.ts
+Backend/mcp-server/HELP.md
+Backend/mcp-client/HELP.md
+Backend/HELP.md
+
+### Environment Variables ###
+.env
+.env.*
+*.env
+**/application-local.yml
+**/application-dev.yml
+**/application-prod.yml
+**/application-*.yml
+!**/application.yml
