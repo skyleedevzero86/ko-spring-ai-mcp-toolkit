@@ -4,6 +4,8 @@ frontend/pnpm-lock.yaml
 frontend/pnpm-workspace.yaml
 frontend/node_modules/
 Backend/target/
+Backend/mcp-server/target/
+Backend/mcp-client/target/
 Backend/.idea/
 frontend/.next/
 frontend/next-env.d.ts
