@@ -25,3 +25,21 @@ replay_pid*
 
 # Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
 .kotlin/
+
+
+frontend/pnpm-lock.yaml
+frontend/package.json
+frontend/pnpm-workspace.yaml
+
+# Backend
+Backend/.idea/
+Backend/target/
+Backend/mcp-server/target/
+Backend/mcp-client/target/
+Backend/HELP.md
+Backend/mcp-server/HELP.md
+Backend/mcp-client/HELP.md
+Backend/**/application.yml
+Backend/**/application.properties
+Backend/**/application-*.yml
+Backend/**/application-*.properties
