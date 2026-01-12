@@ -38,7 +38,6 @@ build/
 .DS_Store
 
 
-
 frontend/package.json
 frontend/pnpm-lock.yaml
 frontend/pnpm-workspace.yaml
