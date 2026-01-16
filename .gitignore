@@ -38,14 +38,16 @@ build/
 .DS_Store
 
 
+# Frontend 관련 파일 제외
 frontend/package.json
 frontend/pnpm-lock.yaml
 frontend/pnpm-workspace.yaml
 frontend/node_modules/
-Backend/target/
-Backend/.idea/
 frontend/.next/
 frontend/next-env.d.ts
+
+# Backend/frontend 디렉토리 전체 제외 (잘못된 위치)
+Backend/frontend/
 Backend/mcp-server/HELP.md
 Backend/mcp-client/HELP.md
 Backend/HELP.md
@@ -54,11 +56,17 @@ Backend/HELP.md
 .env
 .env.*
 *.env
+
+**/application.yml
+**/application.properties
 **/application-local.yml
 **/application-dev.yml
 **/application-prod.yml
 **/application-*.yml
-**/application.yml
-**/application.properties
+**/application-*.properties
 
+frontend/node_modules/
+Backend/frontend/node_modules/
+frontend/.next/
+Backend/frontend/.next/
 

@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Environment Variables ###
+.env
+.env.*
+*.env
+
+### Application Configuration Files (보안상 커밋 제외) ###
+application.yml
+application.properties
+application-local.yml
+application-dev.yml
+application-prod.yml
+application-*.yml
+application-*.properties
