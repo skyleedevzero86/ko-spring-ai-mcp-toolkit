@@ -117,6 +117,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify({
           currentUserName: userIdRef.current,
           message: message,
